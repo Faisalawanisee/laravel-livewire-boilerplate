@@ -31,7 +31,7 @@
                 name="password_confirmation" required />
             </div>
 
-            <div class="text-center">
+            <div class="text-center mt-4">
                 <x-button class="mb-3">
                     {{ __('Register') }}
                 </x-button>

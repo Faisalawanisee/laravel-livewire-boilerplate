@@ -27,7 +27,7 @@
                 <label for="remember_me" class="form-check-label">{{ __('Remember me') }}</label>
             </div>
 
-            <div class="text-center">
+            <div class="text-center mt-4">
                 <x-button class="mb-3">
                     {{ __('Log in') }}
                 </x-button>
