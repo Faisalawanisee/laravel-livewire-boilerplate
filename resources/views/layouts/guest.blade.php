@@ -14,9 +14,18 @@
         <!-- Custom CSS -->
         <link href="css/style.min.css" rel="stylesheet">
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+    <body class="bg-light">
+        <div class="row h-100 justify-content-center">
+            <div class="col-md-4">
+                <div class="my-5">
+                    <div class="mb-3 text-center">
+                        <a href="/">
+                            <x-application-logo class="" />
+                        </a>
+                    </div>
+                    {{ $slot }}
+                </div>
+            </div>
         </div>
     </body>
 </html>
