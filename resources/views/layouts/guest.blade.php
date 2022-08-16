@@ -7,11 +7,12 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+        <!-- Custom CSS -->
+        <link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+        <!-- Custom CSS -->
+        <link href="css/style.min.css" rel="stylesheet">
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
