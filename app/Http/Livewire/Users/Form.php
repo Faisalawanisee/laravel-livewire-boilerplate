@@ -17,6 +17,9 @@ class Form extends Component
     {
         if($id && User::find($id)) {
             $this->edit($id);
+        } else {
+            session()->flash('message', 'User Not Exists');
+            return redirect('/');
         }
     }
 
