@@ -1,3 +1,3 @@
 <x-app-layout>
-    <livewire:users.form :id="$id ? $id : null" />
+    <livewire:users.form :id="$id" />
 </x-app-layout>
