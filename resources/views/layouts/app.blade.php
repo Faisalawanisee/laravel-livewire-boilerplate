@@ -111,7 +111,7 @@
 			<div class="page-breadcrumb bg-white">
 				<div class="row align-items-center">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="page-title">Dashboard</h4>
+						<h4 class="page-title">@yield('title')</h4>
 					</div>
 					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 						<div class="d-md-flex">
@@ -155,6 +155,7 @@
 	<!-- ============================================================== -->
 	<script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap tether Core JavaScript -->
+	{{-- <script src="js/bootstrap.min.js"></script> --}}
 	<script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="js/app-style-switcher.js"></script>
 	<script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>

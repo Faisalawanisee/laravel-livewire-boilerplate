@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Livewire\Users\Form;
+use App\Http\Livewire\Users\Index;
+use App\Http\Livewire\Users\Single;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +27,11 @@ Route::get('/dashboard', function () {
 Route::get('/profile', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('profile');
+
+// Users
+Route::get('/users', Index::class)->middleware(['auth'])->name('users');
+Route::get('/user/create', Form::class)->middleware(['auth'])->name('user_create');
+Route::get('/user/{id}/edit', Form::class)->middleware(['auth'])->name('user_edit');
+Route::get('/user/{id}', Single::class)->middleware(['auth'])->name('user_view');
 
 require __DIR__.'/auth.php';
