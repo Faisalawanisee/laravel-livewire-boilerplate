@@ -22,18 +22,20 @@
             <x-label for="email" class="form-label" :value="__('Email')" />
             <x-input id="email" wire:model="email" class="form-control" type="email" name="email" :value="old('email')" required />
         </div>
-        <!-- Password -->
-        <div class="mb-3">
-            <x-label for="password" class="form-label" :value="__('Password')" />
-            <x-input id="password" wire:model="password" class="form-control"
-            type="password"
-            name="password"
-            required autocomplete="new-password" />
-        </div>
+        @if (!$is_update)
+            <!-- Password -->
+            <div class="mb-3">
+                <x-label for="password" class="form-label" :value="__('Password')" />
+                <x-input id="password" wire:model="password" class="form-control"
+                type="password"
+                name="password"
+                required autocomplete="new-password" />
+            </div>
+        @endif
 
         <div class="text-center mt-4">
             <x-button class="mb-3">
-                {{$is_update ? 'Update' : 'Create' }}
+                {{ $is_update ? 'Update' : 'Create' }}
             </x-button>
         </div>
     </form>

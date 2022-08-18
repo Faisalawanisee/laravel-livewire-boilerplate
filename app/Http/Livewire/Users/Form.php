@@ -63,16 +63,11 @@ class Form extends Component
         $valid_fields = $this->validate([
             'name' => 'required',
             'email' => ['required', 'email'],
-            'password' => ['required', 'min:8'],
         ]);
-        $valid_fields['password'] = Hash::make($valid_fields['password']);
 
         $user = User::find($this->user_id);
         
         $user->update($valid_fields);
-
-        $this->is_update = false;
-        $this->clearForm();
         
         session()->flash('message', 'User Updated Successfully.');
     }    

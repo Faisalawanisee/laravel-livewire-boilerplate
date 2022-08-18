@@ -32,28 +32,33 @@
 						<td>{{$user->email}}</td>
 						<td>N/A</td>
 						<td>
-							<button type="button" class="btn btn-info btn-sm rounded-circle text-white" data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+							<a
+								href="user/{{$user->id}}"
+								class="btn btn-primary btn-sm rounded-circle text-white"
+								data-bs-toggle="tooltip"
+								data-bs-placement="top"
+								title="View"
+							>
 								<span><i class="fa fa-eye"></i></span>
-							</button>
+						</a>
 							<a
 								href="user/{{$user->id}}/edit"
-								class="btn btn-warning btn-sm rounded-circle text-white"
+								class="btn btn-primary btn-sm rounded-circle text-white"
 								data-bs-toggle="tooltip"
 								data-bs-placement="top"
 								title="Edit"
 							>
 								<span><i class="fa fa-pencil-alt"></i></span>
 							</a>
-							<button
-								type="button" 
+							<a
 								wire:click="delete({{$user->id}})"
-								class="btn btn-danger btn-sm rounded-circle text-white"
+								class="btn btn-primary btn-sm rounded-circle text-white"
 								data-bs-toggle="tooltip"
 								data-bs-placement="top"
 								title="Delete"
 							>
 								<span><i class="fa fa-trash"></i></span>
-							</button>
+							</a>
 						</td>
 					</tr>
 				@endforeach
