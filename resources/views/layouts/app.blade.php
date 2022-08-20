@@ -9,11 +9,11 @@
 
 	<link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
 	<!-- Custom CSS -->
-	<link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+	<link href="/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
 	<!-- Custom CSS -->
-	<link href="css/style.min.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
+	<link href="/css/style.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
 	@livewireStyles
 </head>
 
@@ -41,7 +41,7 @@
 					<!-- ============================================================== -->
 					<!-- Logo -->
 					<!-- ============================================================== -->
-					<a class="navbar-brand" href="{{ route('dashboard') }}">
+					<a class="navbar-brand" href="{{ route('admin') }}">
 						<x-application-logo class="" />
 					</a>
 					<!-- ============================================================== -->
@@ -66,7 +66,7 @@
 						<!-- ============================================================== -->
 						<!-- User profile and search -->
 						<!-- ============================================================== -->
-						
+
 
 						<li class="nav-item dropdown">
 							<a class="profile-pic nav-link dropdown-toggle with-arrow" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,8 +74,12 @@
 								<span class="text-white font-medium">{{ Auth::user()->name }}</span>
 							</a>
 							<ul class="dropdown-menu" style="left:unset;right:20px !important;" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
+                                <x-dropdown-link :href="route('admin.profile')" :active="request()->routeIs('admin.profile')">
+                                    {{ __('Profile') }}
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('admin.settings')" :active="request()->routeIs('admin.settings')">
+                                    {{ __('Settings') }}
+                                </x-dropdown-link>
 								<li><hr class="dropdown-divider"></li>
 								<li>
 									<a class="dropdown-item" href="{{ route('logout') }}"
@@ -110,15 +114,8 @@
 			<!-- ============================================================== -->
 			<div class="page-breadcrumb bg-white">
 				<div class="row align-items-center">
-					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="page-title">Dashboard</h4>
-					</div>
-					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-						<div class="d-md-flex">
-							<ol class="breadcrumb ms-auto">
-								<li><a href="#" class="fw-normal">Dashboard</a></li>
-							</ol>
-						</div>
+					<div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">@yield('page.title', ucfirst(Route::currentRouteName()))</h4>
 					</div>
 				</div>
 				<!-- /.col-lg-12 -->
@@ -153,22 +150,22 @@
 	<!-- ============================================================== -->
 	<!-- All Jquery -->
 	<!-- ============================================================== -->
-	<script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="/plugins/bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap tether Core JavaScript -->
-	<script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="js/app-style-switcher.js"></script>
-	<script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+	<script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="/js/app-style-switcher.js"></script>
+	<script src="/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
 	<!--Wave Effects -->
-	<script src="js/waves.js"></script>
+	<script src="/js/waves.js"></script>
 	<!--Menu sidebar -->
-	<script src="js/sidebarmenu.js"></script>
+	<script src="/js/sidebarmenu.js"></script>
 	<!--Custom JavaScript -->
-	<script src="js/custom.js"></script>
+	<script src="/js/custom.js"></script>
 	<!--This page JavaScript -->
 	<!--chartis chart-->
-	<script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
-	<script src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-	<script src="js/pages/dashboards/dashboard1.js"></script>
+	<script src="/plugins/bower_components/chartist/dist/chartist.min.js"></script>
+	<script src="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+	<script src="/js/pages/dashboards/dashboard1.js"></script>
 
 	@livewireScripts
 </body>

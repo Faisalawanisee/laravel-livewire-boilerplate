@@ -2,8 +2,8 @@
 
 @php
 $classes = ($active ?? false)
-    ? 'sidebar-link waves-effect waves-dark sidebar-link'
-    : 'sidebar-link waves-effect waves-dark sidebar-link active';
+    ? 'sidebar-link waves-effect waves-dark sidebar-link active'
+    : 'sidebar-link waves-effect waves-dark sidebar-link';
 @endphp
 
 <li class="sidebar-item">
