@@ -26,7 +26,6 @@ class ProfileController extends Controller
         $request->validate([
             'user_id' => 'required',
             'phone' => 'required',
-            
         ]);
 
         try {
