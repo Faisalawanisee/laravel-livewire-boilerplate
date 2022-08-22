@@ -15,7 +15,7 @@ class Index extends Component
     public function render()
     {
         $roles = Role::pluck('name','name')->all();
-        $users = User::orderBy('id','DESC')->paginate(5);
+        $users = User::orderBy('id','DESC')->paginate(20);
 
         return view('livewire.admin.user.index', compact('users', 'roles'));
     }
