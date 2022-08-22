@@ -14,4 +14,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/settings', function () {
         return view('profile');
     })->name('admin.settings');
+
+    Route::get('/users', function () {
+        return view('admin.users.index');
+    })->name('admin.users');
 });
