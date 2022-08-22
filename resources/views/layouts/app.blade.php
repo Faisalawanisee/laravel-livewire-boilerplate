@@ -75,7 +75,7 @@
 								<span class="text-white font-medium">{{ Auth::user()->name }}</span>
 							</a>
 							<ul class="dropdown-menu" style="left:unset;right:20px !important;" aria-labelledby="navbarDropdown">
-                                <x-dropdown-link :href="route('admin.profile')" :active="request()->routeIs('admin.profile')">
+                                <x-dropdown-link :href="route('profile')" :active="request()->routeIs('profile')">
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
                                 <x-dropdown-link :href="route('admin.settings')" :active="request()->routeIs('admin.settings')">
