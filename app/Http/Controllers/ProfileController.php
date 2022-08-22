@@ -11,13 +11,10 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        // $profile = Profile::all();
-        // if (Auth::user()->level  1) {
+      
             $user_id = Auth::user()->id;
             $profile = Profile::where('user_id',$user_id)->first();
-        // }
-
-        
+            
         return view('user/profile' , ['profile' => $profile])->with('error' ,0);
     }
 

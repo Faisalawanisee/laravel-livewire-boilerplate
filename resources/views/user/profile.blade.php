@@ -11,7 +11,7 @@
         Your Profile
     </div> 
     <div class="row">
-    {{-- @foreach ($profile as $profile) --}}
+ 
      <form action="{{route('createProfile')}}" method="POST"  enctype="multipart/form-data">
         {{ csrf_field() }}
         <h5 class="mt-4">Personal Information</h5>
@@ -71,6 +71,6 @@
             </button>
         </div>
      </form>
-     {{-- @endforeach --}}
+   
     </div>
 </x-app-layout>
