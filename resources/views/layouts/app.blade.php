@@ -11,6 +11,7 @@
 	<!-- Custom CSS -->
 	<link href="/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+	<link rel="stylesheet" href="/plugins/toastify-js/toastify.min.css">
 	<!-- Custom CSS -->
 	<link href="/css/style.min.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
@@ -114,9 +115,12 @@
 			<!-- ============================================================== -->
 			<div class="page-breadcrumb bg-white">
 				<div class="row align-items-center">
-					<div class="col-lg-12 col-md-4 col-sm-4 col-xs-12">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 						<h4 class="page-title">@yield('page.title', ucfirst(Route::currentRouteName()))</h4>
 					</div>
+                    <div class="col-lg-8 col-md-8 col-sm-4 col-xs-8">
+                        @yield('action-buttons')
+                    </div>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -128,10 +132,8 @@
 			<!-- ============================================================== -->
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-12">
-						<div class="white-box">
-							{{ $slot }}
-						</div>
+                    <div class="col-md-12">
+						{{ $slot }}
 					</div>
 				</div>
 			</div>
@@ -165,9 +167,44 @@
 	<!--chartis chart-->
 	<script src="/plugins/bower_components/chartist/dist/chartist.min.js"></script>
 	<script src="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+	<script src="/plugins/toastify-js/toastify.js"></script>
 	<script src="/js/pages/dashboards/dashboard1.js"></script>
 
 	@livewireScripts
+
+    <script type="text/javascript">
+        window.livewire.on('userStore', () => {
+            $('#addUserModel').modal('hide');
+        });
+        window.addEventListener('toast-message', event => {
+            Toastify({
+            text: event.detail.message,
+            duration: 3000,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+
+            },
+            onClick: function(){} // Callback after click
+            }).showToast();
+        })
+        window.addEventListener('toast-error-message', event => {
+            Toastify({
+            text: event.detail.message,
+            duration: 3000,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            onClick: function(){} // Callback after click
+            }).showToast();
+        })
+    </script>
 </body>
 
 </html>

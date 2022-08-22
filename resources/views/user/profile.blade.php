@@ -9,7 +9,7 @@
 
     <div class="py-12">
         Your Profile
-    </div> 
+    </div>
     <div class="row">
  
      <form action="{{route('createProfile')}}" method="POST"  enctype="multipart/form-data">
@@ -17,12 +17,12 @@
         <h5 class="mt-4">Personal Information</h5>
 
         <input type="hidden" name="id" value="{{$profile->id??null}}">
-        <input type="hidden" name='user_id' value="{{\Illuminate\Support\Facades\Auth::user()->id}}">
+        <input type="hidden" name='user_id' value="{{auth()->user()->id}}">
         @if (session('error') === '')
             <div class="mt-2 alert alert-success">
                <i class="linl-icon" data-feather="check-circle"></i>successfully save data
             </div>
-        @elseif (session('error') === '1')   
+        @elseif (session('error') === '1')
         <div class="mt-2 alert alert-danger">
             <i class="linl-icon" data-feather="check-circle"></i>failed when trying to save data, please try again
          </div>
@@ -42,22 +42,22 @@
 
         <div class="mb-3 mt-1">
             <label for="phone" class="form-label text-muted ">Phone Number <span class="text-danger">:</span></label>
-            <input type="text" class="form-label" name="phone" id="phone" placeholder="Enter your Phone Number" value="{{$profile->phone??null}}">
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter your Phone Number" value="{{$profile->phone??null}}">
         </div>
 
         <div class="mb-3 mt-1">
             <label for="company" class="form-label text-muted ">Company <span class="text-danger">:</span></label>
-            <input type="text" class="form-label" name="company" id="company" placeholder="Enter your company Name" value="{{$profile->company??null}}">
+            <input type="text" class="form-control" name="company" id="company" placeholder="Enter your company Name" value="{{$profile->company??null}}">
         </div>
 
         <div class="mb-3 mt-1">
             <label for="country" class="form-label text-muted ">Country  <span class="text-danger">:</span></label>
-            <input type="text" class="form-label" name="country" id="country" placeholder="Enter your country Name" value="{{$profile->country??null}}">
+            <input type="text" class="form-control" name="country" id="country" placeholder="Enter your country Name" value="{{$profile->country??null}}">
         </div>
 
         <div class="mb-3 mt-1">
             <label for="city" class="form-label text-muted ">City <span class="text-danger">:</span></label>
-            <input type="text" class="form-label" name="city" id="city" placeholder="Enter your city Name" value="{{$profile->city??null}}">
+            <input type="text" class="form-control" name="city" id="city" placeholder="Enter your city Name" value="{{$profile->city??null}}">
         </div>
         <div class="mb-3 mt-1">
             <label for="address" class="form-label text-muted ">Complete Address <span class="text-danger">:</span></label>
@@ -67,7 +67,7 @@
         <div class="mt-1">
             <button type="submit" class="btn btn-sm btn-info me-2 mb-2">
                 <i class="btn-icon-prepend" data-feather="link"></i>
-                Save Profile 
+                Save Profile
             </button>
         </div>
      </form>
