@@ -10,9 +10,9 @@
                 <x-nav-link :href="route('admin')" icon="far fa-clock" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-nav-link>
-                <x-nav-link :href="route('users')" icon="fa fa-user" :active="request()->routeIs('users')">
+                {{-- <x-nav-link :href="route('users')" icon="fa fa-user" :active="request()->routeIs('users')">
                     {{ __('Users') }}
-                </x-nav-link>
+                </x-nav-link> --}}
                 {{-- <x-nav-link :href="route('admin.profile')" icon="fa fa-user" :active="request()->routeIs('profile')"> --}}
                 <x-nav-link :href="route('profile')" icon="fa fa-user" :active="request()->routeIs('profile')">
                     {{ __('Profile') }}
