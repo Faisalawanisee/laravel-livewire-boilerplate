@@ -48,7 +48,6 @@ class ProfileController extends Controller
                 $imgname = $request->image->hashName();
             }
 
-
             $profile->user_id = $request->user_id;
             $profile->phone = $request->phone;
             $profile->company = $request->company;
