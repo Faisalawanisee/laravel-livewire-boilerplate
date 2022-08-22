@@ -16,6 +16,10 @@
                                 <td>Email</td>
                                 <td>{{ $user->email }}</td>
                             </tr>
+                            <tr>
+                                <td>Phone</td>
+                                <td>{{ $user->profile->phone }}</td>
+                            </tr>
                         </tbody>
                     </table>
                 @else

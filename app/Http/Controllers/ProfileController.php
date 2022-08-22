@@ -11,12 +11,12 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        
+
             $user_id = Auth::user()->id;
             $profile = Profile::where('user_id',$user_id)->first();
-     
 
-        
+
+
         return view('user/profile' , ['profile' => $profile])->with('error' ,0);
     }
 
@@ -25,7 +25,7 @@ class ProfileController extends Controller
         $request->validate([
             'user_id' => 'required',
             'phone' => 'required',
-            
+
         ]);
 
         try {
@@ -58,7 +58,7 @@ class ProfileController extends Controller
             $profile->country = $request->country;
             $profile->city = $request->city;
             $profile->address = $request->address;
-           
+
             if($method == 'update') {
                 if(!empty($imgname)) {
                     $profile->image = $imgname;
@@ -66,15 +66,15 @@ class ProfileController extends Controller
             } else{
                 $profile->image = $imgname;
             }
-        
+
             $profile->save();
-            
+
 
             return redirect(route('profile'))->with('error', '');
 
         } catch (QueryException $e){
             return redirect(route('profile'))->with('error', 1);
         }
-    
+
     }
 }

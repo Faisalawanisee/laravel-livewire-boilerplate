@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 
 
 Route::group(['middleware' => 'auth'], function() {
+
     Route::get('/', function () {
         return view('dashboard');
     })->middleware(['auth'])->name('admin');
@@ -13,12 +14,16 @@ Route::group(['middleware' => 'auth'], function() {
     // })->name('admin.profile');
 
     Route::get('/profile',[ProfileController::class, 'index'])->name('profile');
-Route::post('/profile/create',[ProfileController::class, 'createProfile'])->name('createProfile');
+    Route::post('/profile/create',[ProfileController::class, 'createProfile'])->name('createProfile');
 
 
     Route::get('/settings', function () {
         return view('profile');
     })->name('admin.settings');
+
+    Route::get('/users', function () {
+        return view('admin.users.index');
+    })->name('admin.users');
 
 
 });
