@@ -61,7 +61,7 @@
         </div>
         <div class="mb-3 mt-1">
             <label for="address" class="form-label text-muted ">Complete Address <span class="text-danger">:</span></label>
-            <textarea class="form-control"  name="address" cols="12" rows="2" id="address" placeholder="Enter Your Address" value="{{$profile->address??null}}"></textarea>
+            <textarea class="form-control"  name="address" cols="12" rows="2" id="address" placeholder="Enter Your Address">{{$profile->address??null}}</textarea>
         </div>
 
         <div class="mt-1">
