@@ -18,6 +18,29 @@
                             <input required type="email" class="form-control" wire:model="email" id="exampleFormControlInput2" placeholder="Enter Email">
                             @error('email') <span class="text-danger">{{ $message }}</span>@enderror
                         </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput2">Phone</label>
+                            <input required type="text" class="form-control" wire:model="phone" id="exampleFormControlInput2" placeholder="Enter Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput2">company</label>
+                            <input required type="text" class="form-control" wire:model="company" id="exampleFormControlInput2" placeholder="Enter Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput2">country</label>
+                            <input required type="text" class="form-control" wire:model="country" id="exampleFormControlInput2" placeholder="Enter Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput2">city</label>
+                            <input required type="text" class="form-control" wire:model="city" id="exampleFormControlInput2" placeholder="Enter Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput2">address</label>
+                            <textarea class="form-control"  wire:model="address" cols="12" rows="2" id="address" placeholder="Enter Your Address"></textarea>
+                        </div>
+       
+                        
+                        
                     </form>
                 @else
                     <div class="spinner-grow" role="status">

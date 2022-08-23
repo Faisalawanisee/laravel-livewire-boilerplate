@@ -6,14 +6,17 @@ use Livewire\Component;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Hash;
+use App\Models\Profile;
+use Illuminate\Support\Facades\Auth;
 
 class Index extends Component
 {
-    public $user, $name, $email, $password, $role, $user_id;
+    public $user, $name, $email, $password, $role, $user_id  ;
     public $updateMode = false;
 
     public function render()
-    {
+    {   
+      
         $roles = Role::pluck('name','name')->all();
         $users = User::orderBy('id','DESC')->paginate(20);
 
@@ -52,11 +55,18 @@ class Index extends Component
     }
 
     public function edit($id)
-    {
-        $record = User::findOrFail($id);
+    {   
+       
+        $record =User::findOrFail($id);
+        $profile = $record->profile;
         $this->user_id = $id;
         $this->name = $record->name;
         $this->email = $record->email;
+        $this->phone = $profile->phone;
+        $this->company = $profile->company;
+        $this->country = $profile->country;
+        $this->city = $profile->city;
+        $this->address = $profile->address;
         $this->updateMode = true;
     }
 
@@ -86,6 +96,7 @@ class Index extends Component
                 'name' => $this->name,
                 'email' => $this->email
             ]);
+
             $this->dispatchBrowserEvent('toast-message', ['message' => 'Users Updated Successfully.']);
 
             $this->resetInputFields();
@@ -94,6 +105,7 @@ class Index extends Component
         }
     }
 
+    
 
     public function destroy($id)
     {

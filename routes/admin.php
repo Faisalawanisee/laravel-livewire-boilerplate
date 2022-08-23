@@ -25,5 +25,5 @@ Route::group(['middleware' => 'auth'], function() {
         return view('admin.users.index');
     })->name('users');
 
-
+   
 });
