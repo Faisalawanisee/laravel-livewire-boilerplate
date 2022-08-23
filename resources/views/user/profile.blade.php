@@ -1,4 +1,4 @@
-@section('page.title', 'Page Title')
+@section('page.title', 'User Profile')
 
 <x-app-layout>
     <x-slot name="header">
