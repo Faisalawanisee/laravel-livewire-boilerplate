@@ -29,15 +29,14 @@ class Index extends Component
         $this->validate([
             'name' => 'required',
         ]);
+
         $role = Role::create([
             'name' => $this->name,
         ]);
 
         $this->resetInputFields();
-
         $this->dispatchBrowserEvent('toast-message', ['message' => 'Role Created Successfully.']);
-
-        $this->emit('roleStore');
+        $this->emit('closeModal');
     }
 
     public function edit($id)
@@ -69,21 +68,15 @@ class Index extends Component
         ]);
         if ($this->role_id) {
 
-            // $record = Role::find($this->role_id);
-            // $s = $record->update([
-            //     'name' => $this->name,
-            // ]);
-            // dd($s);
+            $record = Role::find($this->role_id);
+            $s = $record->update([
+                'name' => $this->name,
+            ]);
 
-            $role = Role::find($this->role_id);
-            $role->name = $this->name;
-            $role->save();
-            
             $this->dispatchBrowserEvent('toast-message', ['message' => 'Role Updated Successfully.']);
-
             $this->resetInputFields();
-
             $this->updateMode = false;
+            $this->emit('closeModal');
         }
     }
 

@@ -5,10 +5,10 @@
                 <h5 class="modal-title" id="addRoleModelLabel">Add Role</h5>
             </div>
            <div class="modal-body">
-                <form>
+                <form wire:submit.prevent="store()">
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Name</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name" wire:model.defer="name">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name" wire:model.defer="name">
                         @error('name') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </form>

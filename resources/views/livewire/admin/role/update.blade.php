@@ -6,7 +6,7 @@
             </div>
             <div class="modal-body">
                 @if($name)
-                    <form>
+                    <form wire:submit.prevent="update">
                         <div class="form-group">
                             <input type="hidden" wire:model="role_id">
                             <label for="exampleFormControlInput1">Name</label>

@@ -5,8 +5,8 @@
                 <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
             </div>
             <div class="modal-body">
-                @if($name)
-                    <form>
+                @if(true)
+                    <form wire:submit.prevent="update()">
                         <div class="form-group">
                             <input type="hidden" wire:model="user_id">
                             <label for="exampleFormControlInput1">Name</label>

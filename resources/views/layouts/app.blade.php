@@ -173,8 +173,8 @@
 	@livewireScripts
 
     <script type="text/javascript">
-        window.livewire.on('userStore, roleStore', () => {
-            $('#addUserModel, #addRoleModel').modal('hide');
+        window.livewire.on('closeModal', () => {
+            $('.modal.show').modal('hide');
         });
         window.addEventListener('toast-message', event => {
             Toastify({
