@@ -101,11 +101,10 @@ class Index extends Component
             $profile->save();
             $record->update([
                 'name' => $this->name,
-                'email' => $this->email,
-               
+                'email' => $this->email,               
             ]);
 
-
+            
             $this->dispatchBrowserEvent('toast-message', ['message' => 'Users Updated Successfully.']);
 
             $this->resetInputFields();
