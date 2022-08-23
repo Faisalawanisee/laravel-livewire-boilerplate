@@ -1,48 +1,30 @@
-<div class="row">
-  <div class="col-lg-12 margin-tb">
-      <div class="pull-left">
-          <h2>Edit Role</h2>
-      </div>
-      <div class="pull-right">
-          <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-      </div>
-  </div>
+<div wire:ignore.self class="modal fade" id="updateRoleModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Role</h5>
+            </div>
+            <div class="modal-body">
+                @if($name)
+                    <form>
+                        <div class="form-group">
+                            <input type="hidden" wire:model="role_id">
+                            <label for="exampleFormControlInput1">Name</label>
+                            <input required type="text" class="form-control" wire:model="name" id="exampleFormControlInput1" placeholder="Enter Name">
+                            @error('name') <span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
+                    </form>
+                @else
+                    <div class="spinner-grow" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                @endif
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" wire:click.prevent="update()" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+            </div>
+       </div>
+    </div>
 </div>
-
-
-@if (count($errors) > 0)
-  <div class="alert alert-danger">
-      <strong>Whoops!</strong> There were some problems with your input.<br><br>
-      <ul>
-      @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-      @endforeach
-      </ul>
-  </div>
-@endif
-
-
-{!! Form::model($role, ['method' => 'PATCH','route' => ['roles.update', $role->id]]) !!}
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12">
-      <div class="form-group">
-          <strong>Name:</strong>
-          {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
-      </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-12">
-      <div class="form-group">
-          <strong>Permission:</strong>
-          <br/>
-          @foreach($permission as $value)
-              <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
-              {{ $value->name }}</label>
-          <br/>
-          @endforeach
-      </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-      <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
-</div>
-{!! Form::close() !!}

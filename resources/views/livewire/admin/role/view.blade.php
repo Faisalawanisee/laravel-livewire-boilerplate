@@ -1,30 +1,29 @@
-<div class="row">
-  <div class="col-lg-12 margin-tb">
-      <div class="pull-left">
-          <h2> Show Role</h2>
-      </div>
-      <div class="pull-right">
-          <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-      </div>
-  </div>
-</div>
+<div wire:ignore.self class="modal fade" id="viewRoleModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Role Detail</h5>
+            </div>
+            <div class="modal-body">
+                @if($role)
+                    <table class="table table-sm table-bordered border-primary">
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>{{ $role->name }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                @else
+                    <div class="spinner-grow" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                @endif
 
-
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12">
-      <div class="form-group">
-          <strong>Name:</strong>
-          {{ $role->name }}
-      </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-12">
-      <div class="form-group">
-          <strong>Permissions:</strong>
-          @if(!empty($rolePermissions))
-              @foreach($rolePermissions as $v)
-                  <label class="label label-success">{{ $v->name }},</label>
-              @endforeach
-          @endif
-      </div>
-  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+       </div>
+    </div>
 </div>

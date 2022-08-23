@@ -7,7 +7,7 @@
 
 	<title>{{ config('app.name', 'Laravel') }}</title>
 
-	<link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon.png')}}">
 	<!-- Custom CSS -->
 	<link href="/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
@@ -75,12 +75,12 @@
 								<span class="text-white font-medium">{{ Auth::user()->name }}</span>
 							</a>
 							<ul class="dropdown-menu" style="left:unset;right:20px !important;" aria-labelledby="navbarDropdown">
-                                <x-dropdown-link :href="route('profile')" :active="request()->routeIs('profile')">
-                                    {{ __('Profile') }}
-                                </x-dropdown-link>
-                                <x-dropdown-link :href="route('admin.settings')" :active="request()->routeIs('admin.settings')">
-                                    {{ __('Settings') }}
-                                </x-dropdown-link>
+								<x-dropdown-link :href="route('profile')" :active="request()->routeIs('profile')">
+										{{ __('Profile') }}
+								</x-dropdown-link>
+								<x-dropdown-link :href="route('admin.settings')" :active="request()->routeIs('admin.settings')">
+										{{ __('Settings') }}
+								</x-dropdown-link>
 								<li><hr class="dropdown-divider"></li>
 								<li>
 									<a class="dropdown-item" href="{{ route('logout') }}"
@@ -118,9 +118,9 @@
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 						<h4 class="page-title">@yield('page.title', ucfirst(Route::currentRouteName()))</h4>
 					</div>
-                    <div class="col-lg-8 col-md-8 col-sm-4 col-xs-8">
-                        @yield('action-buttons')
-                    </div>
+					<div class="col-lg-8 col-md-8 col-sm-4 col-xs-8">
+						@yield('action-buttons')
+					</div>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -132,7 +132,7 @@
 			<!-- ============================================================== -->
 			<div class="container-fluid">
 				<div class="row">
-                    <div class="col-md-12">
+					<div class="col-md-12">
 						{{ $slot }}
 					</div>
 				</div>
@@ -173,8 +173,8 @@
 	@livewireScripts
 
     <script type="text/javascript">
-        window.livewire.on('userStore', () => {
-            $('#addUserModel').modal('hide');
+        window.livewire.on('userStore, roleStore', () => {
+            $('#addUserModel, #addRoleModel').modal('hide');
         });
         window.addEventListener('toast-message', event => {
             Toastify({

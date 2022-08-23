@@ -25,5 +25,9 @@ Route::group(['middleware' => 'auth'], function() {
         return view('admin.users.index');
     })->name('admin.users');
 
+    Route::get('/roles', function () {
+        return view('admin.roles.index');
+    })->name('admin.roles');
+
 
 });

@@ -2,13 +2,16 @@
 
 namespace App\Http\Livewire\Admin\User;
 
-use Livewire\Component;
-use App\Models\User;
-use Spatie\Permission\Models\Role;
 use Hash;
+use App\Models\User;
+use Livewire\Component;
+use Livewire\WithPagination;
+use Spatie\Permission\Models\Role;
 
 class Index extends Component
 {
+    use WithPagination;
+
     public $user, $name, $email, $password, $role, $user_id;
     public $updateMode = false;
 

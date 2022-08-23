@@ -7,7 +7,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon.png')}}">
         <!-- Custom CSS -->
         <link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
         <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
@@ -20,7 +20,7 @@
                 <div class="my-5">
                     <div class="mb-3 text-center">
                         <a href="/">
-                            <x-application-logo class="" />
+                            <x-application-logo />
                         </a>
                     </div>
                     {{ $slot }}
