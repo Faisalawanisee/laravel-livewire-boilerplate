@@ -92,10 +92,19 @@ class Index extends Component
         ]);
         if ($this->user_id) {
             $record = User::find($this->user_id);
+            $profile = $record->profile;
+            $profile->phone = $this->phone;
+            $profile->company = $this->company;
+            $profile->country = $this->country;
+            $profile->city = $this->city;
+            $profile->address = $this->address;
+            $profile->save();
             $record->update([
                 'name' => $this->name,
-                'email' => $this->email
+                'email' => $this->email,
+               
             ]);
+
 
             $this->dispatchBrowserEvent('toast-message', ['message' => 'Users Updated Successfully.']);
 
@@ -105,7 +114,7 @@ class Index extends Component
         }
     }
 
-    
+
 
     public function destroy($id)
     {

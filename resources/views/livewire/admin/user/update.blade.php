@@ -5,7 +5,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
             </div>
             <div class="modal-body">
-                @if($name)
+                @if(true)
                     <form>
                         <div class="form-group">
                             <input type="hidden" wire:model="user_id">
