@@ -100,7 +100,7 @@ class Index extends Component
         if ($id) {
             $record = User::where('id', $id);
             $record->delete();
-            $this->dispatchBrowserEvent('toast-error-message', ['message' => 'Users Deleted Successfully.', 'type' => 'error']);
+            $this->dispatchBrowserEvent('toast-message', ['message' => 'Users Deleted Successfully.', 'type' => 'error']);
         }
     }
 }

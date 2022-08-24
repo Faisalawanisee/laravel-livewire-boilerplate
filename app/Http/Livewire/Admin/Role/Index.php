@@ -85,7 +85,7 @@ class Index extends Component
         if ($id) {
             $record = Role::where('id', $id);
             $record->delete();
-            $this->dispatchBrowserEvent('toast-error-message', ['message' => 'Roles Deleted Successfully.', 'type' => 'error']);
+            $this->dispatchBrowserEvent('toast-message', ['message' => 'Roles Deleted Successfully.', 'type' => 'error']);
         }
     }
 }

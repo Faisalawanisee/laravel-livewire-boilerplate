@@ -172,39 +172,23 @@
 
 	@livewireScripts
 
-    <script type="text/javascript">
-        window.livewire.on('closeModal', () => {
-            $('.modal.show').modal('hide');
-        });
-        window.addEventListener('toast-message', event => {
-            Toastify({
-            text: event.detail.message,
-            duration: 3000,
-            close: true,
-            gravity: "bottom", // `top` or `bottom`
-            position: "center", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
+  <script type="text/javascript">
 
-            },
-            onClick: function(){} // Callback after click
-            }).showToast();
-        })
-        window.addEventListener('toast-error-message', event => {
-            Toastify({
-            text: event.detail.message,
-            duration: 3000,
-            close: true,
-            gravity: "bottom", // `top` or `bottom`
-            position: "center", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
-                background: "linear-gradient(to right, #00b09b, #96c93d)",
-            },
-            onClick: function(){} // Callback after click
-            }).showToast();
-        })
-    </script>
+		window.livewire.on('closeModal', () => {
+			$('.modal.show').modal('hide');
+		});
+
+		window.addEventListener('toast-message', event => {
+			Toastify({
+				text: event.detail.message,
+				className: event.detail.type,
+				duration: 3000,
+				close: true,
+				gravity: "bottom", // `top` or `bottom`
+				position: "center", // `left`, `center` or `right`
+				onClick: function(){} // Callback after click
+			}).showToast();
+		})
+	</script>
 </body>
-
 </html>

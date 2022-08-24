@@ -1,3 +1,22 @@
+/*** overrides ***/
+/* toast */
+.toastify {
+  background: var(--bs-primary);
+}
+.toastify.error {
+  background: var(--bs-danger);
+}
+.toastify.success {
+  background: var(--bs-success);
+}
+.toastify.info {
+  background: var(--bs-info);
+}
+.toastify.warning {
+  background: var(--bs-warning);
+}
+
+/*  */
 #navbarDropdown::after {
   display: inline-block;
   margin-left: 0.255em;
