@@ -1,11 +1,11 @@
 <!-- Logo icon -->
 <b class="logo-icon">
     <!-- Dark Logo icon -->
-    <img src="/plugins/images/logo-icon.png" alt="homepage" />
+    <img src="{{asset('images/logo-icon.png')}}" alt="logo" />
 </b>
 <!--End Logo icon -->
 <!-- Logo text -->
 <span class="logo-text">
     <!-- dark Logo text -->
-    <img src="/plugins/images/logo-text.png" alt="homepage" />
+    <img src="{{asset('images/logo.png')}}" alt="logo" />
 </span>

@@ -1,3 +1,10 @@
+@php
+    if ($image) {
+      $imgUrl = asset('storage/upload/img/').'/'.$image;
+    } else {
+      $imgUrl = asset('storage/upload/img/9z7H6UzKSs4KhTBmvKecZUccE3VQy3hE6bMOhAFv.jpg');
+    }
+@endphp
 
 <div  wire:ignore.self class="modal fade" id="addProfileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -8,7 +15,10 @@
       </div>
       <div class="modal-body">
         <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-            @if($newimage)
+          <img src="{{$imgUrl}}"
+              alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+              style="width: 150px; z-index: 1">
+            {{-- @if($newimage)
             <img src="{{$newimage->temporaryUrl()}}"
               alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
               style="width: 150px; z-index: 1">
@@ -20,10 +30,10 @@
               <img src="{{asset('storage/upload/img/9z7H6UzKSs4KhTBmvKecZUccE3VQy3hE6bMOhAFv.jpg')}}"
               alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
               style="width: 150px; z-index: 1">
-              @endif
+              @endif --}}
           </div>
         <div class="ms-2">
-            <input type="file" class="form-control" wire:model="newimage" id="image">
+            <input type="file" class="form-control" wire:model="image" id="image">
         </div>
         <form>
           <div class="mb-3">

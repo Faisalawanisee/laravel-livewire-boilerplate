@@ -2,13 +2,16 @@
 
 namespace App\Http\Livewire\Admin\User;
 
-use Livewire\Component;
-use App\Models\User;
-use Spatie\Permission\Models\Role;
 use Hash;
+use App\Models\User;
+use Livewire\Component;
+use Livewire\WithPagination;
+use Spatie\Permission\Models\Role;
 
 class Index extends Component
 {
+    use WithPagination;
+
     public $user, $name, $email, $password, $role, $user_id;
     public $updateMode = false;
 
@@ -35,6 +38,7 @@ class Index extends Component
             'name' => 'required|min:5',
             'email' => 'required|email',
         ]);
+
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
@@ -42,13 +46,9 @@ class Index extends Component
         ]);
         $user->assignRole($this->role);
 
-        session()->flash('message', 'Users Created Successfully.');
-
         $this->resetInputFields();
-
         $this->dispatchBrowserEvent('toast-message', ['message' => 'Users Created Successfully.']);
-
-        $this->emit('userStore');
+        $this->emit('closeModal');
     }
 
     public function edit($id)
@@ -80,28 +80,27 @@ class Index extends Component
             'name' => 'required|min:5',
             'email' => 'required|email:rfc,dns'
         ]);
+
         if ($this->user_id) {
-            $record = User::find($this->user_id);
+            $record = User::findOrFail($this->user_id);
             $record->update([
                 'name' => $this->name,
-                'email' => $this->email
+                'email' => $this->email,
             ]);
+
             $this->dispatchBrowserEvent('toast-message', ['message' => 'Users Updated Successfully.']);
-
             $this->resetInputFields();
-
             $this->updateMode = false;
+            $this->emit('closeModal');
         }
     }
-
 
     public function destroy($id)
     {
         if ($id) {
             $record = User::where('id', $id);
             $record->delete();
-            // session()->flash('message', 'Users Deleted Successfully.');
-            $this->dispatchBrowserEvent('toast-error-message', ['message' => 'Users Deleted Successfully.', 'type' => 'error']);
+            $this->dispatchBrowserEvent('toast-message', ['message' => 'Users Deleted Successfully.', 'type' => 'error']);
         }
     }
 }

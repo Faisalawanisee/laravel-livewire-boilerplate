@@ -5,7 +5,7 @@
                 <h5 class="modal-title" id="addUserModelLabel">Add User</h5>
             </div>
            <div class="modal-body">
-                <form>
+                <form wire:submit.prevent="store()">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Name</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name" wire:model.defer="name">
@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label for="newUserPassword">Role</label>
-                        <select class="form-select" aria-label="Role">
+                        <select class="form-select" wire:model.defer="role" aria-label="Role">
                         @foreach($roles as $role)
                             <option value="{{$role}}">{{$role}}</option>
                         @endforeach

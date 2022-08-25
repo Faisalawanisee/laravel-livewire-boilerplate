@@ -20,12 +20,16 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/users', function () {
         return view('admin.users.index');
-    })->name('users');
+    })->name('admin.users');
 
     Route::get('/profile', function () {
         return view('admin.profile.index');
     })->name('profile');
 
+
+    Route::get('/roles', function () {
+        return view('admin.roles.index');
+    })->name('admin.roles');
 
 
 });
