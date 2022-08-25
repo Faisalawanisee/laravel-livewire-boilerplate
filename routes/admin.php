@@ -9,12 +9,9 @@ Route::group(['middleware' => 'auth'], function() {
         return view('dashboard');
     })->middleware(['auth'])->name('admin');
 
-    // Route::get('/profile', function () {
-    //     return view('profile');
-    // })->name('admin.profile');
-
-    Route::get('/profile',[ProfileController::class, 'index'])->name('profile');
-    Route::post('/profile/create',[ProfileController::class, 'createProfile'])->name('createProfile');
+   
+    // Route::get('/profile',[ProfileController::class, 'index'])->name('profile');
+    // Route::post('/profile/create',[ProfileController::class, 'createProfile'])->name('createProfile');
 
 
     Route::get('/settings', function () {
@@ -24,6 +21,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/users', function () {
         return view('admin.users.index');
     })->name('users');
+
+    Route::get('/profile', function () {
+        return view('admin.profile.index');
+    })->name('profile');
+
 
 
 });

@@ -176,6 +176,10 @@
         window.livewire.on('userStore', () => {
             $('#addUserModel').modal('hide');
         });
+        window.livewire.on('profileStore', () => {
+            $('#addProfileModel').modal('hide');
+        });
+		
         window.addEventListener('toast-message', event => {
             Toastify({
             text: event.detail.message,
