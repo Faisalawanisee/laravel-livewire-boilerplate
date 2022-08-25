@@ -49,6 +49,10 @@
             <input type="phone" class="form-control" wire:model="phone" id="phone">
           </div>
           <div class="mb-3">
+            <label for="company" class="col-form-label">Company :</label>
+            <input type="company" class="form-control" wire:model="company" id="company">
+          </div>
+          <div class="mb-3">
             <label for="city" class="col-form-label">City :</label>
             <input type="text" class="form-control" wire:model="city" id="city">
           </div>
@@ -63,7 +67,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" wire:click.prevent="updateProfile()">Update Profile</button>
       </div>
     </div>

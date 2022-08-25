@@ -1,10 +1,5 @@
-<div>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Your Profile') }}
-        </h2>
-    </x-slot>
 
+<div>
     @include('livewire.admin.profile.update')
         <div class="container-fluid py-2 h-100 ">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -50,6 +45,8 @@
                     <div class="p-4" style="background-color: #f8f9fa;">
                     <h5 class="fw-bold">Phone :</h5>
                       <p class="font-italic mb-1 ms-3">{{$user->profile->phone}}</p>
+                    <h5 class="fw-bold">Company :</h5>
+                      <p class="font-italic mb-1 ms-3">{{$user->profile->company}}</p>
                       <h5 class="fw-bold">City :</h5>
                       <p class="font-italic mb-1 ms-3">{{$user->profile->city}}</p>
                       <h5 class="fw-bold">Country :</h5>
